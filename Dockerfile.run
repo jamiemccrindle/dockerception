@@ -1,8 +1,9 @@
 FROM flynn/busybox
 
+# Add the binary
 ADD app /bin/app
 
 EXPOSE 8001
 
-# ENTRYPOINT ["/bin/app"]
+# Run the /bin/app by default
 CMD ["/bin/app"]
