@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
+	"log"
 )
 
 func main() {
@@ -19,5 +20,6 @@ func main() {
 
 		})
 
+	log.Println("Server Starting. Listening on", *address)
 	http.ListenAndServe(*address, nil)
 }
