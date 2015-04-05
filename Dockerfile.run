@@ -1,0 +1,8 @@
+FROM flynn/busybox
+
+ADD status /bin/status
+
+EXPOSE 8001
+
+# ENTRYPOINT ["/bin/status"]
+CMD ["/bin/status"]
