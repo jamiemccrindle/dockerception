@@ -2,10 +2,10 @@
 
 ## How to have a docker build your dockers
 
-Having an entirely self contained build process within docker is convenient. The downside is that doing this often means that there
-are build time dependencies that are carried over to your runtime e.g. the official golang builder docker weighs in at 514.8mb
-before you even add your project in. A better solution would be to be able to build a 'builder' docker image and then use that
-to construct a 'runtime' docker image.
+Having an entirely self contained build process within docker is convenient. A downside is that doing this often means
+that there are build time dependencies that are carried over to your runtime e.g. the official golang builder docker
+weighs in at 514.8mb before you even add your project in. A better solution would be to be able to build a 'builder'
+docker image and then use that to construct a 'runtime' docker image.
 
 There is a proposal for nested builds: Proposal: Nested builds #7115, but it has been open for some time.
 
