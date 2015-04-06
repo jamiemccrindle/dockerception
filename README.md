@@ -5,7 +5,8 @@
 ### tl;dr
 
 You can split out your docker build process into a 'builder' docker and a 'runtime' docker to keep your docker runtime images
-as small as possible. This repository is an example of that. To build the runtime docker image, run the following:
+as small as possible. This repository is an example of that. To build the runtime docker image, clone this project and then
+run the following command:
 
     docker build -t builder .; docker run builder | docker build -t dockerception -
 
