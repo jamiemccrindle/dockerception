@@ -1,6 +1,6 @@
 # Dockerception
 
-## How to have docker build minimal docker images
+## How to have a docker build your dockers (and keep them small)
 
 ### tl;dr
 
