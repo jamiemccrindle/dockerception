@@ -11,7 +11,8 @@ I recall seeing the following feature in the release notes for Docker 1.1.0:
 > Allow a tar file as context for docker build
 >
 > You can now pass a tar archive to docker build as context. This can be used to automate docker builds, for example: cat context.tar | docker build - or docker run builder_image | docker build -
-> but I hadn't seen an examples of it being used, so I decided to try it out. The test project is here github.com/jamiemccrindle/dockerception.
+
+but I hadn't seen an examples of it being used, so I decided to try it out.
 
 Skipping to the end, here is the line that builds our builder docker image and then builds the final runtime docker image:
 
