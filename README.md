@@ -1,6 +1,6 @@
 # Dockerception
 
-## How to have a docker build your dockers (and keep them small)
+## How to have a docker build your dockers
 
 ### tl;dr
 
