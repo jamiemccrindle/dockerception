@@ -1,7 +1,7 @@
 FROM flynn/busybox
 
-# Add the binary
-ADD app /bin/app
+# Copy the binary
+COPY app /bin/app
 
 EXPOSE 8001
 

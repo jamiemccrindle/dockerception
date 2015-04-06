@@ -1,7 +1,7 @@
 FROM golang:1.4.2-onbuild
 
-# Add the runtime dockerfile into the context as Dockerfile
-ADD Dockerfile.run /go/bin/Dockerfile
+# Copy the runtime dockerfile into the context as Dockerfile
+COPY Dockerfile.run /go/bin/Dockerfile
 
 # Set the workdir to be /go/bin which is where the binaries are built
 WORKDIR /go/bin
