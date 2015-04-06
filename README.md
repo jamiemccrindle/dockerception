@@ -2,6 +2,16 @@
 
 ## How to have a docker build your dockers
 
+### tl;dr
+
+You can split out your docker build process into a 'builder' docker and a 'runtime' docker, which combines the
+convenience of only needing your CI to run docker along with having minimal runtime docker images. This repository
+is an example of that. To build the runtime docker image, run the following:
+
+    docker build -t builder .; docker run builder | docker build -t dockerception -
+
+### The longer version
+
 Having an entirely self contained build process within docker is convenient. A downside is that doing this often means
 that there are build time dependencies that are carried over to your runtime e.g. the official golang builder docker
 weighs in at 514.8mb before you even add your project in. A better solution would be to be able to build a 'builder'
