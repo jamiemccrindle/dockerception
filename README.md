@@ -52,11 +52,14 @@ The Dockerfile for the runtime image looks as follows:
     # Run the /bin/app by default
     CMD ["/bin/app"]
 
-Resulting in a 10.53 MB docker image. It should be possible to build the runtime docker image using scratch instead of busybox but I'll leave that as an exercise for the reader.
+Resulting in a 10.53 MB docker image. It should be possible to build the runtime docker image using scratch instead of
+busybox but I'll leave that as an exercise for the reader.
 
 If this still seems confusing, here's a deeper dive into what's happening:
 
-'docker build' usually points at a directory e.g. 'docker build .'. This is known as the docker build context. The directory typically has a Dockerfile in it and any other resources you want to add via the ADD command e.g. for a golang project your directory / context may look something like this:
+'docker build' usually points at a directory e.g. 'docker build .'. This directory is known as the docker build context.
+The directory typically has a Dockerfile in it and any other resources you want to add via the ADD command e.g. for a
+golang project your directory / context may look something like this:
 
     > tree .
     .
