@@ -1,6 +1,6 @@
 # Dockerception
 
-## How to have a docker build your dockers
+## How to use a builder docker to build a minimal runtime docker
 
 ### tl;dr
 
