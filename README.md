@@ -1,6 +1,6 @@
 # Dockerception
 
-## How to use a builder docker to build a minimal runtime docker
+## How to have docker build minimal docker images
 
 ### tl;dr
 
