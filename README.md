@@ -2,7 +2,7 @@
 
 ## How to have a docker build your dockers
 
-Having docker build your Docker images has been something of a holy grail of Docker CI because it would mean that your CI server would only need to have run 1 command to build anything: essentially the allure of Docker itself migrating up the build chain.
+Having docker build your Docker images is something of a holy grail of Docker CI because it would mean that your CI server would only need to have run 1 command to build anything: essentially the allure of Docker itself migrating up the build chain.
 
 There is a proposal for nested builds: Proposal: Nested builds #7115, but it has been open for some time.
 
