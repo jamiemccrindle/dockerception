@@ -10,6 +10,9 @@ run the following command:
 
     docker build -t builder .; docker run builder | docker build -t dockerception -
 
+**We're hiring in our London offices!** If working with this kind of technology is interesting to you, please email me at
+jmc@bn.co for more information.
+
 ### The longer version
 
 Having an entirely self contained build process within docker is convenient. A downside is that doing this often means
