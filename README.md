@@ -8,14 +8,14 @@ You can split out your docker build process into a 'builder' docker and a 'runti
 as small as possible. This repository is an example of that. To build the runtime docker image, clone this project and then
 run the following command:
 
-    docker build -t builder .; docker run builder | docker build -t dockerception -
+    docker build -t builder .&& docker run builder | docker build -t dockerception -
 
 **We're hiring in our London offices!** If working with this kind of technology is interesting to you, please email me at
 jmc@bn.co for more information.
 
 ### The longer version
 
-Having an entirely self contained build process within docker is convenient. A downside is that doing this often means
+Having an entirely self contained build process within docker is convenient. A downside is that doing this often means;
 that there are build time dependencies that are carried over to your runtime e.g. the official golang builder docker
 weighs in at 514.8mb before you even add your project in. A better solution would be to be able to build a 'builder'
 docker image and then use that to construct a 'runtime' docker image.
@@ -32,7 +32,7 @@ but I hadn't seen an examples of it being used, so I decided to try it out.
 
 Skipping to the end, here is the line that builds our builder docker image and then builds the final runtime docker image:
 
-    docker build -t builder .; docker run builder | docker build -t dockerception -
+    docker build -t builder .&& docker run builder | docker build -t dockerception -
 
 which does the following:
 
