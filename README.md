@@ -8,7 +8,7 @@ You can split out your docker build process into a 'builder' docker and a 'runti
 as small as possible. This repository is an example of that. To build the runtime docker image, clone this project and then
 run the following command:
 
-    docker build -t builder .&& docker run builder | docker build -t dockerception -
+    docker build -t builder . && docker run builder | docker build -t dockerception -
 
 ### The longer version
 
@@ -29,7 +29,7 @@ but I hadn't seen an examples of it being used, so I decided to try it out.
 
 Skipping to the end, here is the line that builds our builder docker image and then builds the final runtime docker image:
 
-    docker build -t builder .&& docker run builder | docker build -t dockerception -
+    docker build -t builder . && docker run builder | docker build -t dockerception -
 
 which does the following:
 
