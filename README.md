@@ -42,7 +42,7 @@ The Dockerfile for the builder looks as follows:
     FROM golang:1.4.2-onbuild
 
     # Add the runtime dockerfile into the context as Dockerfile
-    ADD Dockerfile.run /go/bin/Dockerfile
+    COPY Dockerfile.run /go/bin/Dockerfile
 
     # Set the workdir to be /go/bin which is where the binaries are built
     WORKDIR /go/bin
@@ -55,7 +55,7 @@ The Dockerfile for the runtime image looks as follows:
     FROM flynn/busybox
 
     # Add the binary
-    ADD app /bin/app
+    COPY app /bin/app
 
     EXPOSE 8001
 
