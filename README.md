@@ -33,9 +33,9 @@ Skipping to the end, here is the line that builds our builder docker image and t
 
 which does the following:
 
-* Builds a 'builder' docker image using the Dockerfile in the current directory (docker build -t builder .)
-* Runs the 'builder' docker which builds the sources in the current directory and outputs them as a tar stream (docker run builder)
-* Builds an image called 'dockerception' from the tar stream which contains a Dockerfile and the binary (docker build -t dockerception -)
+* Builds a 'builder' docker image using the Dockerfile in the current directory (`docker build -t builder .`)
+* Runs the 'builder' docker which builds the sources in the current directory and outputs a Dockerfile and binary as a tar stream (`docker run builder`)
+* Builds a runtime image (from the above tar stream) called 'dockerception' (`... | docker build -t dockerception -`)
 
 The Dockerfile for the builder looks as follows:
 
