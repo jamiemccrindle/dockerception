@@ -2,6 +2,14 @@
 
 ## Docker building dockers - keeping them small
 
+### tl;dr
+
+You can split out your docker build process into a 'builder' docker and a 'runtime' docker to keep your docker runtime images
+as small as possible. This repository is an example of that. To build the runtime docker image, clone this project and then
+run the following command:
+
+    docker build -t builder . && docker run builder | docker build -t dockerception -
+    
 ### 1.8 Permissions error
 
 Docker introduced an issue in 1.8 that affects how dockerception works
@@ -20,14 +28,6 @@ I'm using the following as a workaround:
     tar -C $BUILD_DIR -xvf $BUILD_DIR/$1.tar
     docker build -t $1 $BUILD_DIR
     rm -r $BUILD_DIR
-
-### tl;dr
-
-You can split out your docker build process into a 'builder' docker and a 'runtime' docker to keep your docker runtime images
-as small as possible. This repository is an example of that. To build the runtime docker image, clone this project and then
-run the following command:
-
-    docker build -t builder . && docker run builder | docker build -t dockerception -
 
 ### The longer version
 
