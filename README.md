@@ -27,7 +27,7 @@ You can split out your docker build process into a 'builder' docker and a 'runti
 as small as possible. This repository is an example of that. To build the runtime docker image, clone this project and then
 run the following command:
 
-    docker build -t builder .; docker run builder | docker build -t dockerception -
+    docker build -t builder . && docker run builder | docker build -t dockerception -
 
 ### The longer version
 
@@ -48,20 +48,20 @@ but I hadn't seen an examples of it being used, so I decided to try it out.
 
 Skipping to the end, here is the line that builds our builder docker image and then builds the final runtime docker image:
 
-    docker build -t builder .; docker run builder | docker build -t dockerception -
+    docker build -t builder . && docker run builder | docker build -t dockerception -
 
 which does the following:
 
-* Builds a 'builder' docker image using the Dockerfile in the current directory (docker build -t builder .)
-* Runs the 'builder' docker which builds the sources in the current directory and outputs them as a tar stream (docker run builder)
-* Builds an image called 'dockerception' from the tar stream which contains a Dockerfile and the binary (docker build -t dockerception -)
+* Builds a 'builder' docker image using the Dockerfile in the current directory (`docker build -t builder .`)
+* Runs the 'builder' docker which builds the sources in the current directory and outputs a Dockerfile and binary as a tar stream (`docker run builder`)
+* Builds a runtime image (from the above tar stream) called 'dockerception' (`... | docker build -t dockerception -`)
 
 The Dockerfile for the builder looks as follows:
 
     FROM golang:1.4.2-onbuild
 
     # Add the runtime dockerfile into the context as Dockerfile
-    ADD Dockerfile.run /go/bin/Dockerfile
+    COPY Dockerfile.run /go/bin/Dockerfile
 
     # Set the workdir to be /go/bin which is where the binaries are built
     WORKDIR /go/bin
@@ -74,7 +74,7 @@ The Dockerfile for the runtime image looks as follows:
     FROM flynn/busybox
 
     # Add the binary
-    ADD app /bin/app
+    COPY app /bin/app
 
     EXPOSE 8001
 
