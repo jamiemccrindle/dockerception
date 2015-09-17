@@ -2,6 +2,25 @@
 
 ## Docker building dockers - keeping them small
 
+### 1.8 Permissions error
+
+Docker introduced an issue in 1.8 that affects how dockerception works
+[https://github.com/docker/docker/issues/15785](https://github.com/docker/docker/issues/15785):
+
+    unable to prepare context: unable to extract stdin to temporary context directory: lchown ...: operation not permitted
+
+I'm using the following as a workaround:
+
+    > cat ~/bin/dockerception
+    set -e
+    BUILD_DIR=`mktemp -d /tmp/dockerception-$1.XXXXXX`
+    echo $BUILD_DIR
+    docker build -t $1-builder .
+    docker run $1-builder > $BUILD_DIR/$1.tar
+    tar -C $BUILD_DIR -xvf $BUILD_DIR/$1.tar
+    docker build -t $1 $BUILD_DIR
+    rm -r $BUILD_DIR
+
 ### tl;dr
 
 You can split out your docker build process into a 'builder' docker and a 'runtime' docker to keep your docker runtime images
