@@ -22,7 +22,6 @@ I'm using the following as a workaround:
     > cat ~/bin/dockerception
     set -e
     BUILD_DIR=`mktemp -d /tmp/dockerception-$1.XXXXXX`
-    echo $BUILD_DIR
     docker build -t $1-builder .
     docker run $1-builder > $BUILD_DIR/$1.tar
     tar -C $BUILD_DIR -xvf $BUILD_DIR/$1.tar
